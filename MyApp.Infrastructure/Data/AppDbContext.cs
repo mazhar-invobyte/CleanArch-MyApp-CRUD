@@ -3,13 +3,8 @@ using MyApp.Core.Entities;
 
 namespace MyApp.Infrastructure.Data
 {
-    public class AppDbContext : DbContext
+    public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(options)
     {
-        public AppDbContext(DbContextOptions<AppDbContext> options)
-            : base(options)
-        {
-        }
-
         public DbSet<EmployeeEntity> Employees { get; set; }
     }
 }
